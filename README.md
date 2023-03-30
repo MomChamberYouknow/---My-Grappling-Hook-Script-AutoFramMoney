@@ -1,1 +1,1 @@
-# ---My-Grappling-Hook-Script-AutoFramMoney
+My-Grappling-Hook-Script-AutoFramMoney
