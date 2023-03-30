@@ -1,10 +1,8 @@
+wait(3)
 local uis = game:GetService("UserInputService")
 local gameworkspace = game:GetService("Workspace")
 local tweenservice = game:GetService("TweenService")
 local ply = game:GetService("Players").LocalPlayer
-
-ply.CharacterAdded:Wait()
-
 local char = ply.Character 
 local plygui = ply.PlayerGui
 local speed = _G.speed
