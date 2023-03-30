@@ -6,13 +6,46 @@ local ply = game:GetService("Players").LocalPlayer
 
 
 
+
 local char = ply.Character 
 local plygui = ply.PlayerGui
 local speed = _G.speed
+local use = _G.startmode
+local togglekey = _G.togglekey
+local db = false
+local cd = false
 local chest
 local inload
 
 
+
+uis.InputBegan:Connect(function(press,intyping)
+	if intyping then return end
+	if press.KeyCode == togglekey db == false and cd == false and inload == false then
+		db = true
+		cd = true
+		if use == true then
+			use = false
+		elseif use == false then
+			use = false
+		end
+	end
+end)
+
+uis.InputBegan:Connect(function(press,intyping)
+	if intyping then return end
+	if press.KeyCode == togglekey db == true and cd == true and inload == false then
+		db = false
+		if use == true then
+			use = false
+		elseif use == false then
+			use = false
+		end
+		delay(3,function()
+			cd = false
+		end)
+	end
+end)
 
 inload = true
 
@@ -23,7 +56,9 @@ coroutine.wrap(function()
 			if plygui:FindFirstChild("Meanong") and inload == false then
 				if chest ~= nil then
 					if ply.Character.Humanoid.Health > 0 then
-						ply.Character.HumanoidRootPart.CFrame = chest.CFrame
+						if use == true then
+							ply.Character.HumanoidRootPart.CFrame = chest.CFrame
+						end
 					end
 				end
 			end
