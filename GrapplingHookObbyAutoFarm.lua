@@ -10,7 +10,7 @@ local ply = game:GetService("Players").LocalPlayer
 local char = ply.Character 
 local plygui = ply.PlayerGui
 local speed = _G.speed
-local use = _G.startmode
+local use = false
 local togglekey = _G.togglekey
 local db = false
 local cd = false
@@ -21,26 +21,18 @@ local inload
 
 uis.InputBegan:Connect(function(press,intyping)
 	if intyping then return end
-	if press.KeyCode == togglekey and db == false and cd == false and inload == false then
+	if press.KeyCode == togglekey and db == false and cd == false and inload == false and use == false then
 		db = true
 		cd = true
-		if use == true then
-			use = false
-		elseif use == false then
-			use = false
-		end
+		use = true
 	end
 end)
 
 uis.InputBegan:Connect(function(press,intyping)
 	if intyping then return end
-	if press.KeyCode == togglekey and db == true and cd == true and inload == false then
+	if press.KeyCode == togglekey and db == true and cd == true and inload == false and use == true then
 		db = false
-		if use == true then
-			use = false
-		elseif use == false then
-			use = false
-		end
+		use = false
 		delay(3,function()
 			cd = false
 		end)
@@ -194,3 +186,5 @@ if not plygui:FindFirstChild("Meanong") and inload == true then
 		ply:Kick("Can't Loaded Script because You died [M2B]")
 	end
 end
+
+
