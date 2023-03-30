@@ -21,7 +21,7 @@ local inload
 
 uis.InputBegan:Connect(function(press,intyping)
 	if intyping then return end
-	if press.KeyCode == togglekey db == false and cd == false and inload == false then
+	if press.KeyCode == togglekey and db == false and cd == false and inload == false then
 		db = true
 		cd = true
 		if use == true then
@@ -34,7 +34,7 @@ end)
 
 uis.InputBegan:Connect(function(press,intyping)
 	if intyping then return end
-	if press.KeyCode == togglekey db == true and cd == true and inload == false then
+	if press.KeyCode == togglekey and db == true and cd == true and inload == false then
 		db = false
 		if use == true then
 			use = false
