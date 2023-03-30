@@ -1,5 +1,6 @@
 wait(3)
 if game.PlaceId == "11634942124" then
+	print("Match")
 	local uis = game:GetService("UserInputService")
 	local gameworkspace = game:GetService("Workspace")
 	local tweenservice = game:GetService("TweenService")
