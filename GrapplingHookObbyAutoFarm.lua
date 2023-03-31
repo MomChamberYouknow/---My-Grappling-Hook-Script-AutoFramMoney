@@ -160,30 +160,24 @@ if not plygui:FindFirstChild("Meanong") and inload == true then
 		image:Destroy()
 		loadtext:Destroy()
 
-		if gameworkspace:FindFirstChild("Level") then
-			coroutine.wrap(function()
-				for _,v in pairs(gameworkspace:FindFirstChild("Level"):GetChildren()) do
-					if v:IsA("Model") then
-						if v:FindFirstChild("FinalTrack") then
-							if v:FindFirstChild("FinalTrack"):FindFirstChild("Chest") then
-								coroutine.wrap(function()
-									while wait(3) do
+		
+		coroutine.wrap(function()
+			while wait(3) do
+				if gameworkspace:FindFirstChild("Level") then
+					coroutine.wrap(function()
+						for _,v in pairs(gameworkspace:FindFirstChild("Level"):GetChildren()) do
+							if v:IsA("Model") then
+								if v:FindFirstChild("FinalTrack") then
+									if v:FindFirstChild("FinalTrack"):FindFirstChild("Chest") then
 										chest = v:FindFirstChild("FinalTrack"):FindFirstChild("Chest")
 									end
-								end)()
+								end
 							end
 						end
-					end
+					end)()
 				end
-			end)()
-			--[[coroutine.wrap(function()
-				while wait(speed) do
-					if chest ~= nil then
-						char.HumanoidRootPart.CFrame = chest.CFrame
-					end
-				end
-			end)()--]]
-		end
+			end
+		end)()
 	elseif not char:FindFirstChild("Humanoid") or char:FindFirstChild("HumanoidRootPart") then
 		ply:Kick("Can't Loaded Script because not found Humanoid or HumanoidRootPart [M1B]")
 	elseif char:FindFirstChild("Humanoid") and char:FindFirstChild("Humanoid").Health <= 0 then
