@@ -166,7 +166,11 @@ if not plygui:FindFirstChild("Meanong") and inload == true then
 					if v:IsA("Model") then
 						if v:FindFirstChild("FinalTrack") then
 							if v:FindFirstChild("FinalTrack"):FindFirstChild("Chest") then
-								chest = v:FindFirstChild("FinalTrack"):FindFirstChild("Chest")
+								coroutine.wrap(function()
+									while wait(3) do
+										chest = v:FindFirstChild("FinalTrack"):FindFirstChild("Chest")
+									end
+								end)()
 							end
 						end
 					end
